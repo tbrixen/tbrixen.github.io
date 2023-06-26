@@ -1,4 +1,4 @@
 baseURL = 'https://tbrixen.github.io/'
 languageCode = 'en-us'
-title = 'tbrixen.github.io'
+title = 'tbrixen'
 theme = 'hyde'
