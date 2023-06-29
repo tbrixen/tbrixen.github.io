@@ -2,3 +2,6 @@ baseURL = 'https://tbrixen.github.io/'
 languageCode = 'en-us'
 title = 'tbrixen'
 theme = 'hyde'
+
+[params]
+  description = "My contribution of un-finished ideas to the internet playground of co-creation"
