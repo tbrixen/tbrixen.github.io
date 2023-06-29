@@ -1,0 +1,133 @@
+trickmask@kali:~$ sudo sudo nmap -Pn -p1-65535 -A -v -sS 10.10.10.95
+sudo nmap -Pn -p1-65535 -A -v -sS 10.10.10.95
+[sudo] password for trickmask: 
+
+Starting Nmap 7.40 ( https://nmap.org ) at 2018-07-15 15:26 EDT
+NSE: Loaded 143 scripts for scanning.
+NSE: Script Pre-scanning.
+Initiating NSE at 15:26
+Completed NSE at 15:26, 0.00s elapsed
+Initiating NSE at 15:26
+Completed NSE at 15:26, 0.00s elapsed
+Initiating Parallel DNS resolution of 1 host. at 15:26
+Completed Parallel DNS resolution of 1 host. at 15:26, 0.02s elapsed
+Initiating SYN Stealth Scan at 15:26
+Scanning 10.10.10.95 [65535 ports]
+Discovered open port 8080/tcp on 10.10.10.95
+Discovered open port 139/tcp on 10.10.10.95
+Discovered open port 135/tcp on 10.10.10.95
+Discovered open port 445/tcp on 10.10.10.95
+Discovered open port 3389/tcp on 10.10.10.95
+Discovered open port 49154/tcp on 10.10.10.95
+Discovered open port 49156/tcp on 10.10.10.95
+SYN Stealth Scan Timing: About 30.59% done; ETC: 15:27 (0:01:10 remaining)
+Discovered open port 5985/tcp on 10.10.10.95
+Discovered open port 49152/tcp on 10.10.10.95
+Discovered open port 49153/tcp on 10.10.10.95
+Discovered open port 49155/tcp on 10.10.10.95
+Discovered open port 49157/tcp on 10.10.10.95
+Discovered open port 49201/tcp on 10.10.10.95
+Increasing send delay for 10.10.10.95 from 0 to 5 due to max_successful_tryno increase to 4
+Discovered open port 47001/tcp on 10.10.10.95
+Discovered open port 8009/tcp on 10.10.10.95
+Completed SYN Stealth Scan at 15:29, 184.01s elapsed (65535 total ports)
+Initiating Service scan at 15:29
+Scanning 15 services on 10.10.10.95
+Service scan Timing: About 53.33% done; ETC: 15:30 (0:00:47 remaining)
+Completed Service scan at 15:30, 84.87s elapsed (15 services on 1 host)
+Initiating OS detection (try #1) against 10.10.10.95
+Retrying OS detection (try #2) against 10.10.10.95
+Retrying OS detection (try #3) against 10.10.10.95
+Retrying OS detection (try #4) against 10.10.10.95
+Retrying OS detection (try #5) against 10.10.10.95
+Initiating Traceroute at 15:30
+Completed Traceroute at 15:30, 0.04s elapsed
+Initiating Parallel DNS resolution of 2 hosts. at 15:30
+Completed Parallel DNS resolution of 2 hosts. at 15:30, 0.02s elapsed
+NSE: Script scanning 10.10.10.95.
+Initiating NSE at 15:30
+Completed NSE at 15:30, 7.28s elapsed
+Initiating NSE at 15:30
+Completed NSE at 15:30, 0.12s elapsed
+Nmap scan report for 10.10.10.95
+Host is up (0.032s latency).
+Not shown: 65520 closed ports
+PORT      STATE SERVICE            VERSION
+135/tcp   open  msrpc              Microsoft Windows RPC
+139/tcp   open  netbios-ssn        Microsoft Windows netbios-ssn
+445/tcp   open  microsoft-ds       Microsoft Windows Server 2008 R2 - 2012 microsoft-ds
+3389/tcp  open  ssl/ms-wbt-server?
+| ssl-cert: Subject: commonName=JERRY
+| Issuer: commonName=JERRY
+| Public Key type: rsa
+| Public Key bits: 2048
+| Signature Algorithm: sha256WithRSAEncryption
+| Not valid before: 2018-07-15T02:01:08
+| Not valid after:  2019-01-14T02:01:08
+| MD5:   0a44 a20e 8e35 316e a588 1584 5668 d89f
+|_SHA-1: 7db3 3e60 32c9 c2c6 6a0c bfc8 98d9 577d 1c84 25d2
+5985/tcp  open  http               Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+8009/tcp  open  ajp13              Apache Jserv (Protocol v1.3)
+|_ajp-methods: Failed to get a valid response for the OPTION request
+8080/tcp  open  http               Apache Tomcat/Coyote JSP engine 1.1
+|_http-favicon: Apache Tomcat
+| http-methods: 
+|_  Supported Methods: GET HEAD POST OPTIONS
+|_http-open-proxy: Proxy might be redirecting requests
+|_http-server-header: Apache-Coyote/1.1
+|_http-title: Apache Tomcat/7.0.88
+47001/tcp open  http               Microsoft HTTPAPI httpd 2.0 (SSDP/UPnP)
+|_http-server-header: Microsoft-HTTPAPI/2.0
+|_http-title: Not Found
+49152/tcp open  msrpc              Microsoft Windows RPC
+49153/tcp open  msrpc              Microsoft Windows RPC
+49154/tcp open  msrpc              Microsoft Windows RPC
+49155/tcp open  msrpc              Microsoft Windows RPC
+49156/tcp open  msrpc              Microsoft Windows RPC
+49157/tcp open  msrpc              Microsoft Windows RPC
+49201/tcp open  msrpc              Microsoft Windows RPC
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.40%E=4%D=7/15%OT=135%CT=1%CU=40539%PV=Y%DS=2%DC=T%G=Y%TM=5B4BA0
+OS:ED%P=x86_64-pc-linux-gnu)SEQ(SP=104%GCD=1%ISR=10E%CI=I%II=I%TS=7)SEQ(SP=
+OS:104%GCD=1%ISR=10E%TI=I%CI=I%II=I%SS=S%TS=7)SEQ(SP=105%GCD=1%ISR=108%TI=I
+OS:%CI=I%TS=7)OPS(O1=M54DNW8ST11%O2=M54DNW8ST11%O3=M54DNW8NNT11%O4=M54DNW8S
+OS:T11%O5=M54DNW8ST11%O6=M54DST11)WIN(W1=2000%W2=2000%W3=2000%W4=2000%W5=20
+OS:00%W6=2000)ECN(R=Y%DF=Y%T=80%W=2000%O=M54DNW8NNS%CC=Y%Q=)T1(R=Y%DF=Y%T=8
+OS:0%S=O%A=S+%F=AS%RD=0%Q=)T2(R=Y%DF=Y%T=80%W=0%S=Z%A=S%F=AR%O=%RD=0%Q=)T3(
+OS:R=Y%DF=Y%T=80%W=0%S=Z%A=O%F=AR%O=%RD=0%Q=)T4(R=Y%DF=Y%T=80%W=0%S=A%A=O%F
+OS:=R%O=%RD=0%Q=)T5(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%
+OS:T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=80%W=0%S=Z%A=S+%F=AR%O=%RD
+OS:=0%Q=)U1(R=Y%DF=N%T=80%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE
+OS:(R=Y%DFI=N%T=80%CD=Z)
+
+Uptime guess: 0.034 days (since Sun Jul 15 14:41:34 2018)
+Network Distance: 2 hops
+IP ID Sequence Generation: Incremental
+Service Info: OSs: Windows, Windows Server 2008 R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+|_clock-skew: mean: 6h59m59s, deviation: 0s, median: 6h59m59s
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smbv2-enabled: Server supports SMBv2 protocol
+
+TRACEROUTE (using port 995/tcp)
+HOP RTT      ADDRESS
+1   34.26 ms 10.10.14.1
+2   34.82 ms 10.10.10.95
+
+NSE: Script Post-scanning.
+Initiating NSE at 15:30
+Completed NSE at 15:30, 0.00s elapsed
+Initiating NSE at 15:30
+Completed NSE at 15:30, 0.00s elapsed
+Read data files from: /usr/bin/../share/nmap
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 288.12 seconds
+           Raw packets sent: 69209 (3.049MB) | Rcvd: 66184 (2.651MB)
