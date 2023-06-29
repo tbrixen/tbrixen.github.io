@@ -1,7 +1,20 @@
 baseURL = 'https://tbrixen.github.io/'
 languageCode = 'en-us'
 title = 'tbrixen'
-theme = 'hyde'
+theme = 'anatole'
 
 [params]
-  description = "My contribution of un-finished ideas to the internet playground of co-creation"
+  title = 'tbrixen'
+  author = 'Tobias Brixen'
+  description = "My contributions of un-finished ideas to the internet playground of co-creation"
+  profilePicture = "images/profile.png"
+
+[[params.socialIcons]]
+icon = "fab fa-github"
+title = "Github"
+url = "http://github.com/tbrixen"
+
+[[params.socialIcons]]
+icon = "fab fa-linkedin"
+title = "Linkedin"
+url = "https://de.linkedin.com/tbrixen"
