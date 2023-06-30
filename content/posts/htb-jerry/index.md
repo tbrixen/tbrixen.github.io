@@ -4,8 +4,6 @@ date: 2018-07-18T20:08:47+02:00
 draft: false
 ---
 
-# Jerry
-
 This is my writeup of the Hack the Box machine [Jerry](https://www.hackthebox.com/machines/jerry).
 
 I used Nikto for enumeration and `msfvenom` to get a reverse shell. The revere shell was unstable, so I used Meterpreter to get a more reliable foothold.
