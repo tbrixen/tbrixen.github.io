@@ -22,3 +22,4 @@ url = "https://de.linkedin.com/tbrixen"
 [params.umami]
 serverURL = "analytics.umami.is"
 id = "b1c6be44-f1ef-4886-862e-f468d2b074be"
+trackerScriptName = "script.js"
