@@ -17,7 +17,7 @@ url = "http://github.com/tbrixen"
 [[params.socialIcons]]
 icon = "fab fa-linkedin"
 title = "Linkedin"
-url = "https://de.linkedin.com/tbrixen"
+url = "https://dk.linkedin.com/in/tbrixen"
 
 [params.umami]
 serverURL = "analytics.umami.is"
