@@ -1,0 +1,76 @@
+charix@Poison:~ % ps aux
+USER   PID  %CPU %MEM    VSZ   RSS TT  STAT STARTED     TIME COMMAND
+root    11 100.0  0.0      0    16  -  RL   09:01   12:57.43 [idle]
+root     0   0.0  0.0      0   160  -  DLs  09:01    0:00.00 [kernel]
+root     1   0.0  0.1   5408  1040  -  ILs  09:01    0:00.01 /sbin/init --
+root     2   0.0  0.0      0    16  -  DL   09:01    0:00.00 [crypto]
+root     3   0.0  0.0      0    16  -  DL   09:01    0:00.00 [crypto returns]
+root     4   0.0  0.0      0    32  -  DL   09:01    0:00.03 [cam]
+root     5   0.0  0.0      0    16  -  DL   09:01    0:00.00 [mpt_recovery0]
+root     6   0.0  0.0      0    16  -  DL   09:01    0:00.00 [sctp_iterator]
+root     7   0.0  0.0      0    16  -  DL   09:01    0:00.37 [rand_harvestq]
+root     8   0.0  0.0      0    16  -  DL   09:01    0:00.00 [soaiod1]
+root     9   0.0  0.0      0    16  -  DL   09:01    0:00.00 [soaiod2]
+root    10   0.0  0.0      0    16  -  DL   09:01    0:00.00 [audit]
+root    12   0.0  0.1      0   736  -  WL   09:01    0:05.63 [intr]
+root    13   0.0  0.0      0    48  -  DL   09:01    0:00.01 [geom]
+root    14   0.0  0.0      0   160  -  DL   09:01    0:00.07 [usb]
+root    15   0.0  0.0      0    16  -  DL   09:01    0:00.00 [soaiod3]
+root    16   0.0  0.0      0    16  -  DL   09:01    0:00.00 [soaiod4]
+root    17   0.0  0.0      0    48  -  DL   09:01    0:00.02 [pagedaemon]
+root    18   0.0  0.0      0    16  -  DL   09:01    0:00.00 [vmdaemon]
+root    19   0.0  0.0      0    16  -  DL   09:01    0:00.00 [pagezero]
+root    20   0.0  0.0      0    32  -  DL   09:01    0:00.02 [bufdaemon]
+root    21   0.0  0.0      0    16  -  DL   09:01    0:00.00 [bufspacedaemon]
+root    22   0.0  0.0      0    16  -  DL   09:01    0:00.04 [syncer]
+root    23   0.0  0.0      0    16  -  DL   09:01    0:00.00 [vnlru]
+root   319   0.0  0.5   9560  5052  -  Ss   09:01    0:00.08 /sbin/devd
+root   390   0.0  0.2  10500  2396  -  Ss   09:01    0:00.05 /usr/sbin/syslogd -s
+root   543   0.0  0.5  56320  5392  -  S    09:01    0:00.67 /usr/local/bin/vmtoolsd -c /usr/local/share/vmware-tools/tools.conf -p /usr/lo
+root   620   0.0  0.7  57812  7052  -  Ss   09:01    0:00.04 /usr/sbin/sshd
+root   628   0.0  0.8  85228  7768  -  Is   09:01    0:00.02 sshd: charix [priv] (sshd)
+root   651   0.0  1.1  99172 11516  -  Ss   09:02    0:00.05 /usr/local/sbin/httpd -DNOHTTPACCEPT
+charix 663   0.0  0.8  85228  7804  -  I    09:02    0:00.02 sshd: charix@pts/2 (sshd)
+www    670   0.0  1.2 101220 12168  -  I    09:03    0:00.02 /usr/local/sbin/httpd -DNOHTTPACCEPT
+www    671   0.0  1.2 101220 11932  -  I    09:03    0:00.01 /usr/local/sbin/httpd -DNOHTTPACCEPT
+www    672   0.0  1.2 101220 11908  -  I    09:03    0:00.01 /usr/local/sbin/httpd -DNOHTTPACCEPT
+www    673   0.0  1.2 101220 11844  -  I    09:03    0:00.01 /usr/local/sbin/httpd -DNOHTTPACCEPT
+www    674   0.0  1.2 101220 11916  -  S    09:03    0:00.01 /usr/local/sbin/httpd -DNOHTTPACCEPT
+root   675   0.0  0.6  20636  6204  -  Ss   09:03    0:00.02 sendmail: accepting connections (sendmail)
+smmsp  685   0.0  0.6  20636  5872  -  Is   09:03    0:00.00 sendmail: Queue runner@00:30:00 for /var/spool/clientmqueue (sendmail)
+root   689   0.0  0.2  12592  2436  -  Ss   09:03    0:00.00 /usr/sbin/cron -s
+www    747   0.0  1.2 101220 11844  -  I    09:04    0:00.01 /usr/local/sbin/httpd -DNOHTTPACCEPT
+root   751   0.0  0.8  85228  7960  -  Is   09:04    0:00.02 sshd: charix [priv] (sshd)
+charix 756   0.0  0.8  85228  8048  -  I    09:04    0:00.06 sshd: charix@pts/4 (sshd)
+root   763   0.0  0.8  85228  7960  -  Is   09:05    0:00.02 sshd: charix [priv] (sshd)
+charix 770   0.0  0.8  85228  8048  -  I    09:05    0:00.02 sshd: charix@pts/5 (sshd)
+root   779   0.0  0.8  85228  7964  -  Is   09:06    0:00.02 sshd: charix [priv] (sshd)
+charix 789   0.0  0.8  85228  7980  -  I    09:06    0:00.02 sshd: charix@pts/3 (sshd)
+root   803   0.0  0.8  85228  7960  -  Is   09:06    0:00.03 sshd: charix [priv] (sshd)
+charix 808   0.0  1.1  87276 11128  -  S    09:07    0:00.76 sshd: charix@pts/6 (sshd)
+www    815   0.0  1.1  99172 11528  -  I    09:07    0:00.00 /usr/local/sbin/httpd -DNOHTTPACCEPT
+root   882   0.0  0.8  85228  7960  -  Is   09:11    0:00.02 sshd: charix [priv] (sshd)
+root   887   0.0  0.8  85228  7960  -  Is   09:11    0:00.02 sshd: charix [priv] (sshd)
+charix 891   0.0  0.8  85228  8028  -  S    09:11    0:00.05 sshd: charix@pts/1 (sshd)
+charix 904   0.0  0.8  85228  7980  -  S    09:12    0:00.02 sshd: charix@pts/7 (sshd)
+root   529   0.0  0.9  23620  9036 v0- S    09:01    0:00.17 Xvnc :1 -desktop X -httpd /usr/local/share/tightvnc/classes -auth /root/.Xauth
+root   540   0.0  0.7  67220  7064 v0- S    09:01    0:00.06 xterm -geometry 80x24+10+10 -ls -title X Desktop
+root   541   0.0  0.5  37620  5276 v0- S    09:01    0:00.02 twm
+root   736   0.0  0.2  10484  2076 v0  Is+  09:03    0:00.00 /usr/libexec/getty Pc ttyv0
+root   737   0.0  0.2  10484  2076 v1  Is+  09:03    0:00.00 /usr/libexec/getty Pc ttyv1
+root   738   0.0  0.2  10484  2076 v2  Is+  09:03    0:00.00 /usr/libexec/getty Pc ttyv2
+root   739   0.0  0.2  10484  2076 v3  Is+  09:03    0:00.00 /usr/libexec/getty Pc ttyv3
+root   740   0.0  0.2  10484  2076 v4  Is+  09:03    0:00.00 /usr/libexec/getty Pc ttyv4
+root   741   0.0  0.2  10484  2076 v5  Is+  09:03    0:00.00 /usr/libexec/getty Pc ttyv5
+root   742   0.0  0.2  10484  2076 v6  Is+  09:03    0:00.00 /usr/libexec/getty Pc ttyv6
+root   743   0.0  0.2  10484  2076 v7  Is+  09:03    0:00.00 /usr/libexec/getty Pc ttyv7
+root   564   0.0  0.4  19660  3624  0  Is+  09:01    0:00.02 -csh (csh)
+charix 892   0.0  0.4  19660  3620  1  Ss   09:11    0:00.03 -csh (csh)
+charix 931   0.0  0.5  19772  4948  1  S+   09:14    0:00.02 Xvnc -localhost -rfbauth ./secret
+charix 664   0.0  0.4  19660  3596  2  Is+  09:02    0:00.03 -csh (csh)
+charix 790   0.0  0.4  19660  3644  3  Is+  09:06    0:00.02 -csh (csh)
+charix 757   0.0  0.4  19660  3620  4  Is+  09:04    0:00.04 -csh (csh)
+charix 771   0.0  0.4  19660  3608  5  Is+  09:05    0:00.02 -csh (csh)
+charix 809   0.0  0.4  19660  3616  6  Ss   09:07    0:00.01 -csh (csh)
+charix 932   0.0  0.3  21208  2672  6  R+   09:14    0:00.00 ps aux
+charix 905   0.0  0.4  19660  3624  7  Ss+  09:12    0:00.02 -csh (csh)
