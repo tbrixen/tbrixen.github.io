@@ -3,11 +3,19 @@ languageCode = 'en-us'
 title = 'tbrixen'
 theme = 'anatole'
 
+summarylength = 10
+enableEmoji = true
+
+# Enable Chroma
+pygmentsUseClasses = true
+pygmentsCodeFences = true
+
 [params]
   title = 'tbrixen'
   author = 'Tobias Brixen'
   description = "My contributions of un-finished ideas to the internet playground of co-creation"
   profilePicture = "images/profile.png"
+  #customCss = ["css/syntax.css"] # enable to use Chroma style
 
 [[params.socialIcons]]
 icon = "fab fa-github"
