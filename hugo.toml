@@ -16,6 +16,7 @@ pygmentsCodeFences = true
   description = "My contributions of un-finished ideas to the internet playground of co-creation"
   profilePicture = "images/profile.png"
   #customCss = ["css/syntax.css"] # enable to use Chroma style
+  contentratio = 0.8
 
 [[params.socialIcons]]
 icon = "fab fa-github"
