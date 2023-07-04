@@ -13,7 +13,7 @@ pygmentsCodeFences = true
 [params]
   title = 'tbrixen'
   author = 'Tobias Brixen'
-  description = "My contributions of un-finished ideas to the internet playground of co-creation"
+  description = "Sharing my unfinished ideas in the online collaborative sandbox"
   profilePicture = "images/profile.png"
   #customCss = ["css/syntax.css"] # enable to use Chroma style
   contentratio = 0.8
