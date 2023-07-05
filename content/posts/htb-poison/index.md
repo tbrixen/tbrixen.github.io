@@ -4,7 +4,7 @@ date: 2018-08-10T11:28:47+02:00
 draft: false
 ---
 
-This is my writeup of the [poison](https://www.hackthebox.eu/home/machines/profile/132) machine from HackTheBox.eu.
+This is my writeup of the [poison](https://www.hackthebox.com/machines/poison) machine from HackTheBox.eu.
 The machine is currently 138 days old, it has 6955 user owns and 4330 system owns, and is rated 3.8 in difficulty.
 
 ![HTB status](htb-status.png)
