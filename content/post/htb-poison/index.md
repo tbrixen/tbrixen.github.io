@@ -167,4 +167,4 @@ Success! It prompted for a password, and handed me a vnc session:
 
 ![Getting root flag](vnc_root.png)
 
-I couldn't figure out how to copy fro the session, and I had to manually copy it.
+I couldn't figure out how to copy from the session, and I had to manually copy it.
