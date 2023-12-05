@@ -45,3 +45,9 @@ emitMetadata = "0"
 inputPosition = "bottom"
 lang = "en"
 loading = "lazy"
+
+[taxonomies]
+    category = "categories"
+    series = "series"
+    tag = "tags"
+
