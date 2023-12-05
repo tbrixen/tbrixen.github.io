@@ -100,7 +100,7 @@ I noted a couple of things
 
 ### Looking into the secrets
 
-Can we get the `kube-api-access-cq4m2` secret? No, it seems not
+Can we get the `kube-api-access-cq4m2` secret? No, it seems not (it later hit me that it was a volume, not a secret)
 
 ```
 $ k get secret kube-api-access-cq4m2
