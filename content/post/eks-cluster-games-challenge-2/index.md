@@ -1,7 +1,7 @@
 ---
 title: "EKS Cluster Games: Challenge 2"
 date: 2023-12-05T11:28:47+02:00
-draft: true
+draft: false
 toc: true
 series:
   - EKS-cluster-games
