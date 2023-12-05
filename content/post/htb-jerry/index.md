@@ -2,6 +2,7 @@
 title: "Hack the box - Jerry"
 date: 2018-07-18T20:08:47+02:00
 draft: false
+toc: true
 ---
 
 This is my writeup of the Hack the Box machine [Jerry](https://www.hackthebox.com/machines/jerry).
