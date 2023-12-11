@@ -15,8 +15,8 @@ pygmentsCodeFences = true
   author = 'Tobias Brixen'
   description = ""
   profilePicture = "images/profile.png"
+  contentratio = 0.85
   #customCss = ["css/syntax.css"] # enable to use Chroma style
-  contentratio = 0.8
 
 [[params.socialIcons]]
 icon = "fab fa-github"
